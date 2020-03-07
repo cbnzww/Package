@@ -1,0 +1,52 @@
+//显示节点刷新按钮
+	
+Ui_QResBtnUpdateWnd* ShowUpdateBtn;
+	
+ShowUpdateBtn->QResBtnUpdateWnd_BtnUpdate->show();
+
+currentChanged
+
+connect(, &::, this, [=](){});
+
+TimeSelectDownload_CloseBtn
+
+ui.QAddCamsToFavDlg_BtnClose->setToolTip(tr("QAddCamsToFavDlg_Close"));//添加窗口关闭按钮tip
+
+theApp.Fun_LogToServer(LogString::ACT_playReal, LogString::Type_Cam, QString::fromStdString(Camera.strCameraName), QString::fromStdString(Camera.strIndexCode), LogString::MSG_playReal, { LogString::Type_Fail, QString::fromStdString(Camera.strCameraName) ,QString::fromStdString(Camera.strIndexCode) }, m_traceId.c_str());
+
+//开启埋点日志业务
+
+CTraceLog::Instance().TraceStart();
+
+m_traceId = CTraceLog::Instance().GetTraceId();
+
+//调用服务器接口
+
+TraceLog_SpanProcess
+
+, m_traceId.c_str()
+LogInfo.strTraceId = CTraceLog::Instance().GetTraceId().c_str();
+
+//埋点业务日志结束
+
+CTraceLog::Instance().TraceEnd();
+
+/******** 写入服务器日志 *************/
+                
+theApp.Fun_LogToServer(LogString::ACT_favoriteAdd, LogString::Type_Fav, strNewName, "", \
+                    
+LogString::MSG_favoriteAdd, { LogString::Type_Fail, strNewName ,strParentName ,strParentIndexCode }, m_traceId.c_str());
+
+/******** 写入服务器日志 *************/
+theApp.Fun_LogToServer(LogString::ACT_openTalk, LogString::Type_Cam, m_stChildWndInfo.strCamName, m_stChildWndInfo.strIndex,\
+LogString::MSG_openTalk, { LogString::Type_Success, m_stChildWndInfo.strCamName, m_stChildWndInfo.strIndex }, m_traceId.c_str());
+
+QString strGroupName = Fun_GetNameByIndex(strGroupIndex, IndexFav);
+/******** 写入服务器日志 *************/
+theApp.Fun_LogToServer(LogString::ACT_cancelShareFav, LogString::Type_Fav, strGroupIndex, strGroupName, \
+LogString::MSG_cancelShareFav, { LogString::Type_Success, strGroupName, strGroupIndex });
+
+/******** 写入服务器日志 *************/抓图
+theApp.Fun_LogToServer(LogString::ACT_snap, LogString::Type_Cam, m_stChildWndInfo.strCamName, m_stChildWndInfo.strIndex, \
+LogString::MSG_snap, { LogString::Type_Success, m_stChildWndInfo.strCamName ,m_stChildWndInfo.strIndex });
+
